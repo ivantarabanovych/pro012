@@ -1,29 +1,18 @@
-function createCounter(){
-    let counter = 0;
+function createLogger(lineLog = ""){
+    let log = lineLog;
 
-    return function(){
-        counter ++;
-        return counter;
-    }
+    return function(newLog){
+        if (log === ""){
+            log = newLog;
+        } else {
+            log += ' ' + newLog;
+        }
+        return log;
+    };
 }
 
-const counter1 = createCounter();
-const counter2 = createCounter();
+const logger = createLogger();
 
-console.log(counter1());
-console.log(counter1());
-console.log(counter1());
-console.log('--------------');
-
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-
-console.log('--------------');
-
-console.log(counter1());
-console.log(counter2());
-console.log(counter1());
-console.log(counter1());
-console.log(counter2());
-console.log(counter2());
+console.log(logger('first log,'));
+console.log(logger('second log,'));
+console.log(logger('third log,'));
