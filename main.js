@@ -1,14 +1,29 @@
-function calculateDiscount(discountPercent){
-    return function(shopAmount){
-        return shopAmount * discountPercent / 100;
-    };
+function createCounter(){
+    let counter = 0;
+
+    return function(){
+        counter ++;
+        return counter;
+    }
 }
 
-const discount10 = calculateDiscount(10);
-const discount20 = calculateDiscount(20);
+const counter1 = createCounter();
+const counter2 = createCounter();
 
-const shopAmount1 = 100;
-const shopAmount2 = 400;
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log('--------------');
 
-console.log(`знижка 10% на ${shopAmount1} грн: ${discount10(shopAmount1)} грн`);
-console.log(`знижка 20% на ${shopAmount2} грн: ${discount20(shopAmount2)} грн`);
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+
+console.log('--------------');
+
+console.log(counter1());
+console.log(counter2());
+console.log(counter1());
+console.log(counter1());
+console.log(counter2());
+console.log(counter2());
