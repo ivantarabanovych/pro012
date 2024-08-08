@@ -1,15 +1,14 @@
-function generateUniqueId(){
-    let idCounter = 0;
-
-    return function(){
-        idCounter +=1;
-        return `id_${idCounter}`;
+function multiplyBy(multiply){
+    return function(number){
+       return multiply * number;
     };
 }
 
-const getUniqueId = generateUniqueId();
+const multiplyBy34 = multiplyBy(34);
+const multiplyBy15 = multiplyBy(15);
+const multiplyBy14 = multiplyBy(14);
 
-console.log(getUniqueId());
-console.log(getUniqueId());
-console.log(getUniqueId());
-console.log(getUniqueId());
+console.log(multiplyBy34(21));
+console.log(multiplyBy15(15));
+console.log(multiplyBy14(12));
+
