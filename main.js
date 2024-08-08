@@ -1,18 +1,15 @@
-function createLogger(lineLog = ""){
-    let log = lineLog;
+function generateUniqueId(){
+    let idCounter = 0;
 
-    return function(newLog){
-        if (log === ""){
-            log = newLog;
-        } else {
-            log += ' ' + newLog;
-        }
-        return log;
+    return function(){
+        idCounter +=1;
+        return `id_${idCounter}`;
     };
 }
 
-const logger = createLogger();
+const getUniqueId = generateUniqueId();
 
-console.log(logger('first log,'));
-console.log(logger('second log,'));
-console.log(logger('third log,'));
+console.log(getUniqueId());
+console.log(getUniqueId());
+console.log(getUniqueId());
+console.log(getUniqueId());
